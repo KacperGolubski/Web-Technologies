@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konsole do gier, ich historia i ciekawostki</title>
+  <style>
+    :root {
+      --kolor-tla: #f4f4f9;
+      --kolor-tekstu: #333333;
+      --kolor-glowny: #0056b3;
+      --kolor-akcentu: #d9534f;
+      --czcionka-glowna: Arial, Helvetica, sans-serif;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--czcionka-glowna);
+      background-color: var(--kolor-tla);
+      color: var(--kolor-tekstu);
+      line-height: 1.6;
+      padding: 20px;
+    }
+    header, nav, main, footer {
+      max-width: 1000px;
+      margin: 0 auto 20px auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+    h1, h2, h3 {
+      color: var(--kolor-glowny);
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: var(--kolor-glowny);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+      color: var(--kolor-akcentu);
+    }
+
+    pre {
+      background: #222;
+      color: #0f0;
+      padding: 15px;
+      text-align: center;
+      max-width: fit-content;
+      margin: 0 auto 20px auto;
+      border-radius: 5px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    nav > ul > li > ul {
+      margin-left: 20px;
+      margin-top: 5px;
+    }
+    article {
+      border-bottom: 2px dashed #eee;
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+    }
+
+    dl {
+      background: var(--kolor-tla);
+      padding: 10px;
+      border-left: 4px solid var(--kolor-glowny);
+    }
+
+    dt {
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    figure {
+      text-align: center;
+      margin: 15px 0;
+    }
+
+    figure img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--kolor-glowny);
+      color: white;
+    }
+    fieldset {
+      padding: 15px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+    }
+
+    legend {
+      font-weight: bold;
+      color: var(--kolor-glowny);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: var(--czcionka-glowna);
+    }
+
+    button[type="submit"] {
+      background-color: var(--kolor-glowny);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    button[type="submit"]:hover {
+      background-color: var(--kolor-akcentu);
+    }
+    @media (min-width: 768px) {
+      nav > ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      nav > ul > li > ul {
+        margin-left: 0;
+      }
+
+      section[id$="_gen"] {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      section[id$="_gen"] > h2,
+      section[id$="_gen"] > p {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      #my_collection {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      #my_collection > h2,
+      #my_collection > fieldset {
+        grid-column: 1 / -1;
+      }
+      form {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Konsole do gier wydane w XXI wieku, ich historia i ciekawostki</h1>
+  <p>Witaj na mojej stronie poświeconej historii konsol, które zostały wydane w XXI wieku. Oprócz samej historii znajdziesz też moją kolekcję konsol oraz krótkie przemyślenia na ich temat.</p>
+</header>
+<pre> ___
+|[_]|
+|+ ;|
+`---'
+
+            </pre>
+<nav>
+  <h2><a href="#history">Historia konsol</a></h2>
+  <ul>
+    <li>
+      <h3><a href="#7th_gen">7. generacja konsol</a></h3>
+      <ul>
+        <li><a href="#xbox_360">Microsoft Xbox 360</a></li>
+        <li><a href="#ps3">Sony PlayStation 3</a></li>
+        <li><a href="#psp">Sony PlayStation Portable</a></li>
+        <li><a href="#wii">Nintendo Wii</a></li>
+        <li><a href="#ds">Nintendo DS</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <h3><a href="#8th_gen">8. generacja konsol</a></h3>
+      <ul>
+        <li><a href="#xbox_one">Microsoft Xbox One</a></li>
+        <li><a href="#ps4">Sony PlayStation 4</a></li>
+        <li><a href="#vita">Sony PlayStation Vita</a></li>
+        <li><a href="#wii_u">Nintendo Wii U</a></li>
+        <li><a href="#3ds">Nintendo 3DS</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <h3><a href="#9th_gen">9. generacja konsol</a></h3>
+      <ul>
+        <li><a href="#xbox_series">Microsoft Xbox Series</a></li>
+        <li><a href="#ps5">Sony PlayStation 5</a></li>
+        <li><a href="#switch">Nintendo Switch</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <h3><a href="#10th_gen">10. generacja konsol</a></h3>
+      <ul>
+        <li><a href="#switch_2">Nintendo Switch 2</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<nav>
+  <h2><a href="#my_collection">Moja kolekcja</a></h2>
+  <ul>
+    <li><a href="#my_xbox360">Microsoft Xbox 360</a></li>
+    <li><a href="#my_ps3">Sony PlayStation 3</a></li>
+    <li><a href="#my_psp">Sony PlayStation Portable</a></li>
+    <li><a href="#my_wii">Nintendo Wii</a></li>
+    <li><a href="#my_3ds">Nintendo 3DS</a></li>
+    <li><a href="#my_vita">Sony PlayStation Vita</a></li>
+    <li><a href="#my_switch">Nintendo Switch</a></li>
+    <li><a href="#my_xbox_series">Microsoft Xbox Series</a></li>
+    <li><a href="#my_ps5">Sony PlayStation 5</a></li>
+  </ul>
+</nav>
+<main>
+  <section id="history">
+    <h1>Historia konsol</h1>
+    <fieldset>
+      <legend>Najważniejsze informacje</legend>
+      <p>Poniżej znajdziesz zestawienie rozwoju konsol w XXI wieku. Tekst został podzielony na cztery główne generacje (od 7. do nadchodzącej 10.), opisując innowacje technologiczne, ciekawostki rynkowe oraz kontrowersje związane z najpopularniejszymi urządzeniami od firm Microsoft, Sony oraz Nintendo.</p>
+    </fieldset>
+    <section id="7th_gen">
+      <h2>7. generacja konsol</h2>
+      <p>VII generacja to czas ogromnych skoków technologicznych i całkowitej zmiany sposobu, w jaki postrzegaliśmy elektroniczną rozrywkę. To właśnie w tym okresie domowe konsole zaoferowały po raz pierwszy grafikę w wysokiej rozdzielczości HD oraz upowszechniły szerokopasmowy dostęp do sieci, tworząc nowoczesne standardy grania wieloosobowego i cyfrowej dystrybucji. Była to również era odważnych innowacji w sterowaniu - rynek podbiły kontrolery ruchowe, a w segmencie urządzeń przenośnych zadebiutowały ekrany dotykowe i zaawansowane funkcje multimedialne, zamieniając handheldy w prawdziwe kieszonkowe komputery.</p>
+      <article id="xbox_360">
+        <h3>Microsoft Xbox 360</h3>
+        <dl>
+          <dt>Data wydania:</dt>
+          <dd>2005</dd>
+          <dt>Wersje i rewizje:</dt>
+          <dd>Core, Premium (Pro), Arcade, Elite, Slim (S), E</dd>
+          <dt>Nośnik:</dt>
+          <dd>Płyty DVD oraz dwuwarstwowe DVD-DL</dd>
+        </dl>
+        <h4>Kluczowe zmiany</h4>
+        <p>Microsoft zrewolucjonizował podejście do usług sieciowych dzięki płatnej, ale bezkonkurencyjnej usłudze Xbox Live. Konsola wprowadziła system Osiągnięć (Achievements) – wirtualnych punktów za wykonywanie zadań w grach, co błyskawicznie stało się standardem w całej branży. W późniejszym okresie wprowadzono Kinecta – zaawansowany sensor pozwalający na sterowanie interfejsem za pomocą ruchów całego ciała, bez użycia fizycznego kontrolera.</p>
+        <aside>
+          <details>
+            <summary>Ciekawostka</summary>
+            <p>Microsoft w tej generacji zdecydował się na napęd DVD, co z czasem zmuszało deweloperów do wydawania większych tytułów na kilku płytach. Pad do Xboxa 360 zyskał jednak status kultowego i przez wielu ekspertów do dziś jest uważany za najbardziej ergonomiczny kontroler w historii elektronicznej rozrywki.</p>
+          </details>
+          <details>
+            <summary>Kontrowersje</summary>
+            <p>Największym koszmarem firmy okazał się słynny "Red Ring of Death" (Czerwony Pierścień Śmierci). Z powodu wadliwego chłodzenia i bezołowiowych lutów konsole masowo ulegały awarii. Microsoft musiał przedłużyć gwarancję do trzech lat, co kosztowało korporację ponad miliard dolarów.</p>
+          </details>
+        </aside>
+      </article>
+      <article id="ps3">
+        <h3>Sony PlayStation 3</h3>
+
+        <dl>
+          <dt>Data wydania:</dt>
+          <dd>2006 (Japonia/USA), 2007 (Europa)</dd>
+
+          <dt>Wersje i rewizje:</dt>
+          <dd>Fat (m.in. 60GB/40GB), Slim, Super Slim</dd>
+
+          <dt>Nośnik:</dt>
+          <dd>Płyty Blu-ray (BD-ROM)</dd>
+        </dl>
+
+        <h4>Kluczowe zmiany</h4>
+        <p>Konsola przyniosła ogromny skok technologiczny, wprowadzając grafikę w jakości HD. Sony odeszło od płatnej wieloosobowej rozgrywki, tworząc darmową infrastrukturę PlayStation Network. Było to też pierwsze domowe centrum multimedialne Sony z wbudowaną przeglądarką internetową. Wprowadzono bezprzewodowe kontrolery (początkowo Sixaxis, potem DualShock 3) wyposażone w żyroskopy, które wykrywały wychylenie pada w przestrzeni.</p>
+
+        <aside>
+          <details>
+            <summary>Ciekawostka</summary>
+            <p>Zastosowanie innowacyjnego formatu Blu-ray mocno przyczyniło się do zwycięstwa Sony w "wojnie nośników" wideo z konkurencyjnym HD DVD. Ponadto pierwsze, grube modele PS3 posiadały wlutowany układ z PlayStation 2 (Emotion Engine), dzięki czemu oferowały sprzętową, niemal idealną kompatybilność wsteczną ze starszymi tytułami.</p>
+          </details>
+          <details>
+            <summary>Kontrowersje</summary>
+            <p>W 2011 roku doszło do bezprecedensowego ataku hakerskiego na usługi Sony. Serwery PlayStation Network zostały wyłączone na blisko miesiąc, a włamywacze wykradli dane osobowe milionów graczy. Powszechnie krytykowano również zaporową cenę konsoli na starcie, która w USA wynosiła aż 599 dolarów.</p>
+          </details>
+        </aside>
+      </article>
+      <article id="psp">
+        <h3>Sony PlayStation Portable</h3>
+        <dl>
+          <dt>Data wydania:</dt>
+          <dd>2004 (Japonia), 2005 (Ameryka Północna, Europa)</dd>
+          <dt>Wersje i rewizje:</dt>
+          <dd>1000 (Fat), 2000 (Slim & Lite), 3000 (Bright), PSP Go, E1000 (Street)</dd>
+          <dt>Nośnik:</dt>
+          <dd>Płyty optyczne UMD (Universal Media Disc)</dd>
+        </dl>
+        <h4>Kluczowe zmiany</h4>
+        <p>PSP było pierwszym przenośnym centrum multimedialnym z prawdziwego zdarzenia. Urządzenie oferowało potężną grafikę 3D, zbliżoną jakościowo do domowego PlayStation 2. Oprócz grania, konsola pozwalała na komfortowe przeglądanie internetu, słuchanie muzyki mp3 oraz oglądanie filmów na dużym, panoramicznym ekranie.</p>
+
+        <aside>
+          <details>
+            <summary>Ciekawostka</summary>
+            <p>Zabezpieczenia konsoli zostały stosunkowo szybko złamane. Dzięki zmodyfikowanemu oprogramowaniu (Custom Firmware), PSP stało się najbardziej uniwersalnym przenośnym emulatorem swoich czasów, potrafiącym uruchamiać klasyki z pierwszego PlayStation oraz starszych sprzętów innych producentów.</p>
+          </details>
+          <details>
+            <summary>Kontrowersje</summary>
+            <p>Napęd UMD sprawiał sporo problemów. Mechaniczne odczytywanie danych z płyt optycznych w urządzeniu przenośnym drastycznie drenowało baterię, a powszechne piractwo wynikające ze złamania systemu zniechęcało twórców do inwestowania w wysokobudżetowe produkcje na tę platformę w późniejszych latach jej życia.</p>
+          </details>
+        </aside>
+      </article>
+      <article id="wii">
+        <h3>Nintendo Wii</h3>
+        <dl>
+          <dt>Data wydania:</dt>
+          <dd>2006</dd>
+          <dt>Wersje i rewizje:</dt>
+          <dd>Classic, Family Edition (bez portów GameCube), Wii Mini</dd>
+          <dt>Nośnik:</dt>
+          <dd>Dyski optyczne Wii Optical Disc</dd>
+        </dl>
+        <h4>Kluczowe zmiany</h4>
+        <p>Nintendo zrezygnowało z wyścigu na moc obliczeniową i grafikę HD, stawiając w 100% na nowatorskie sterowanie ruchem (Motion Control). Wykorzystano innowacyjne "piloty" (Wii Remote) komunikujące się z sensorem podczerwieni. Pozwalało to na przenoszenie ruchów dłoni gracza bezpośrednio na ekran, symulując np. uderzenie rakietą tenisową czy rzut kulą do kręgli.</p>
+
+        <aside>
+          <details>
+            <summary>Ciekawostka</summary>
+            <p>Urządzenie, znane w fazie prototypu jako "Revolution", faktycznie zmieniło rynek. Dzięki intuicyjnemu sterowaniu Wii przyciągnęło do ekranów osoby, które wcześniej omijały tę formę rozrywki – od małych dzieci po seniorów w domach spokojnej starości, sprzedając się w ponad 100 milionach egzemplarzy.</p>
+          </details>
+          <details>
+            <summary>Kontrowersje</summary>
+            <p>Po premierze szybko okazało się, że paski zabezpieczające na nadgarstki są zbyt słabe. Zafascynowani i energiczni gracze nagminnie wypuszczali z rąk śliskie kontrolery, co skutkowało masowymi zgłoszeniami rozbitych szyb, zniszczonych telewizorów i potłuczonych lamp w salonach.</p>
+          </details>
+        </aside>
+      </article>
+      <article id="ds">
+        <h3>Nintendo DS</h3>
+        <dl>
+          <dt>Data wydania:</dt>
+          <dd>2004</dd>
+          <dt>Wersje i rewizje:</dt>
+          <dd>Classic (Fat), Lite, DSi, DSi XL</dd>
+          <dt>Nośnik:</dt>
+          <dd>Kartridże (Game Card)</dd>
+        </dl>
+        <h4>Kluczowe zmiany</h4>
+        <p>Konsola wprowadziła zupełnie nową filozofię projektowania sprzętu przenośnego. Konstrukcja z klapką została wyposażona w dwa ekrany, z czego dolny był dotykowy i obsługiwany za pomocą dołączonego rysika. Wbudowano również mikrofon, dzięki któremu aplikacje mogły reagować na dmuchnięcia czy dźwięk głosu gracza.</p>
+
+        <aside>
+          <details>
+            <summary>Ciekawostka</summary>
+            <p>Nintendo DS to najlepiej sprzedająca się konsola przenośna w historii (i druga w ogólnym zestawieniu wszech czasów, tuż za PS2). Z innowacyjnych systemów dotykowych korzystały nie tylko tradycyjne produkcje, ale także wirtualne przewodniki, słowniki i symulatory edukacyjne.</p>
+          </details>
+          <details>
+            <summary>Kontrowersje</summary>
+            <p>Ze względu na zastosowanie oporowej technologii ekranu dotykowego (wymagającej fizycznego nacisku), intensywna gra często prowadziła do trwałego zarysowania i zmatowienia dolnego wyświetlacza, co wymuszało na graczach kupowanie specjalnych folii ochronnych.</p>
+          </details>
+        </aside>
+      </article>
+    </section>
+    <section id="8th_gen">
+      <h2>8. generacja konsol</h2>
+      <p>VIII generacja upłynęła pod znakiem łączenia graczy, streamingu oraz dynamicznego rozwoju cyfrowych usług. Konsole stały się wszechstronnymi centrami domowej rozrywki, z których za pomocą jednego przycisku można było udostępniać zrzuty ekranu czy transmitować swoją rozgrywkę na żywo w internecie. Był to także czas narodzin rewolucyjnych usług abonamentowych, popularyzacji gogli wirtualnej rzeczywistości oraz niespotykanego wcześniej zjawiska wypuszczania ulepszonych wersji sprzętu w połowie cyklu generacji, aby sprostać rosnącym wymaganiom rozdzielczości 4K.</p>
+      <article id="xbox_one">
+        <h3>Xbox One</h3>
+        <dl>
+          <dt>Data wydania:</dt>
+          <dd>2013</dd>
+          <dt>Wersje i rewizje:</dt>
+          <dd>Fat, S (z napędem 4K UHD), X (potężna wersja dla natywnego 4K)</dd>
+          <dt>Nośnik:</dt>
+          <dd>Płyty Blu-ray / Ultra HD Blu-ray (modele S i X)</dd>
+        </dl>
+        <h4>Kluczowe zmiany</h4>
+        <p>Microsoft zaprezentował konsolę jako kompleksowe, domowe centrum rozrywki, zintegrowane z dekoderami telewizyjnymi i systemem Windows. Największą pozytywną rewolucją tej generacji było wprowadzenie usługi Xbox Game Pass – cyfrowego abonamentu przypominającego "Netflixa", dającego natychmiastowy dostęp do bogatej biblioteki tytułów.</p>
+
+        <aside>
+          <details>
+            <summary>Ciekawostka</summary>
+            <p>Początkowo każda konsola była sprzedawana w zestawie z nową wersją sensora Kinect, który potrafił nawet mierzyć puls gracza na podstawie mikro-zmian koloru twarzy. Z czasem jednak Microsoft całkowicie wycofał się z rozwoju tej technologii, stawiając na klasyczne sterowanie.</p>
+          </details>
+          <details>
+            <summary>Kontrowersje</summary>
+            <p>Pierwsza zapowiedź konsoli to jedna z największych katastrof wizerunkowych w branży. Microsoft ogłosił, że Xbox One będzie wymagał stałego połączenia z internetem i zablokuje możliwość swobodnego pożyczania i odsprzedawania używanych gier na płytach. Fale krytyki zmusiły korporację do całkowitego wycofania się z tych planów tuż przed premierą.</p>
+          </details>
+        </aside>
+      </article>
+      <article id="ps4">
+        <h3>PlayStation 4</h3>
+        <dl>
+          <dt>Data wydania:</dt>
+          <dd>2013</dd>
+          <dt>Wersje i rewizje:</dt>
+          <dd>Fat, Slim, Pro (wsparcie 4K)</dd>
+          <dt>Nośnik:</dt>
+          <dd>Płyty Blu-ray</dd>
+        </dl>
+        <h4>Kluczowe zmiany</h4>
+        <p>Sony zmieniło architekturę sprzętu na układ x86 (zbliżony do komputerów PC), co znacznie ułatwiło programistom tworzenie oprogramowania. Zrewolucjonizowano integrację społecznościową – kontroler DualShock 4 otrzymał przycisk Share, pozwalający na błyskawiczne publikowanie zrzutów ekranu i nagrań w sieci. W tej generacji Sony z sukcesem spopularyzowało także wirtualną rzeczywistość za sprawą gogli PS VR.</p>
+
+        <aside>
+          <details>
+            <summary>Ciekawostka</summary>
+            <p>Pad DualShock 4 posiada na froncie świecący panel (Lightbar). Choć z początku wydawał się jedynie estetycznym dodatkiem zmieniającym kolory w zależności od sytuacji na ekranie, został on zaprojektowany specjalnie z myślą o kamerach PS VR, aby te mogły precyzyjnie śledzić ruchy rąk w trójwymiarowej przestrzeni.</p>
+          </details>
+          <details>
+            <summary>Kontrowersje</summary>
+            <p>Konsola ominęła większe kontrowersje rynkowe, jednak wprowadzenie wersji PS4 Pro ("mid-gen refresh") wywołało na początku mieszane uczucia. Część graczy obawiała się, że bazowy model szybko zostanie porzucony technologicznie na rzecz mocniejszego i droższego odpowiednika obsługującego rozdzielczość 4K.</p>
+          </details>
+        </aside>
+      </article>
+      <article id="vita">
+        <h3>PlayStation Vita</h3>
+        <dl>
+          <dt>Data wydania:</dt>
+          <dd>2011 (Japonia), 2012 (Świat)</dd>
+          <dt>Wersje i rewizje:</dt>
+          <dd>PCH-1000 (ekran OLED), PCH-2000 (ekran LCD, odchudzona), PlayStation TV</dd>
+          <dt>Nośnik:</dt>
+          <dd>Dedykowane karty pamięci PS Vita Card</dd>
+        </dl>
+        <h4>Kluczowe zmiany</h4>
+        <p>Vita dostarczyła "konsolowe" wrażenia w formie przenośnej. Jako pierwsza zaoferowała dwa niezależne analogi, co zrewolucjonizowało mobilne gry akcji. Wyposażona została w fenomenalny ekran (początkowo OLED) oraz tylny, duży panel dotykowy. Zaawansowana funkcja Remote Play pozwalała na płynne strumieniowanie na Vitę obrazu z domowej konsoli PlayStation 4.</p>
+
+        <aside>
+          <details>
+            <summary>Ciekawostka</summary>
+            <p>Choć duże, zachodnie studia dość wcześnie przestały produkować na nią kosztowne tytuły z segmentu AAA, konsola stała się absolutnym hitem wśród niezależnych twórców (indie) oraz platformą uwielbianą przez miłośników japońskich gier z gatunku Visual Novel.</p></details>
+          <details>
+            <summary>Kontrowersje</summary>
+            <p>Największym gwoździem do trumny tego wspaniałego urządzenia były koszty. Sony zablokowało możliwość używania standardowych kart SD, zmuszając klientów do kupowania dedykowanych, własnościowych kart pamięci. Były one wielokrotnie droższe od popularnych nośników, co skutecznie zniechęcało potencjalnych nabywców.</p>
+          </details>
+        </aside>
+      </article>
+      <article id="wii_u">
+        <h3>Nintendo Wii U</h3>
+        <dl>
+          <dt>Data wydania:</dt>
+          <dd>2012</dd>
+          <dt>Wersje i rewizje:</dt>
+          <dd>Basic (8 GB), Deluxe/Premium (32 GB)</dd>
+          <dt>Nośnik:</dt>
+          <dd>Optyczne płyty Wii U Optical Disc</dd>
+        </dl>
+        <h4>Kluczowe zmiany</h4>
+        <p>Była to pierwsza konsola Nintendo oferująca grafikę w rozdzielczości HD. Sercem systemu był innowacyjny kontroler "Wii U GamePad" wyposażony we własny, wbudowany ekran dotykowy. Pozwalał on na asymetryczną rozgrywkę lokalną, a także na kontynuowanie zabawy wyłącznie na ekranie pada (Off-TV Play), zwalniając tym samym telewizor dla innych domowników.</p>
+
+        <aside>
+          <details>
+            <summary>Ciekawostka</summary>
+            <p>Nintendo zintegrowało z konsolą unikalną sieć społecznościową o nazwie Miiverse. Gracze mogli tam publikować ręcznie rysowane wiadomości i dzielić się wskazówkami. Mimo że konsola nie odniosła sukcesu komercyjnego, to właśnie na niej zadebiutowały fundamenty przyszłych wielkich hitów, takich jak seria Splatoon.</p>
+          </details>
+          <details>
+            <summary>Kontrowersje</summary>
+            <p>Sprzęt okazał się ogromną porażką sprzedażową. Niefortunna nazwa i mylący marketing sprawiły, że miliony posiadaczy oryginalnego Wii myślały, iż Wii U to jedynie opcjonalny, drogi tablet do ich starej konsoli, a nie zupełnie nowa generacja sprzętu.</p>
+          </details>
+        </aside>
+      </article>
+      <article id="3ds">
+        <h3>Nintendo 3DS</h3>
+        <dl>
+          <dt>Data wydania:</dt>
+          <dd>2011</dd>
+          <dt>Wersje i rewizje:</dt>
+          <dd>3DS, 3DS XL, 2DS, New 3DS, New 3DS XL, New 2DS XL</dd>
+          <dt>Nośnik:</dt>
+          <dd>Kartridże</dd>
+        </dl>
+        <h4>Kluczowe zmiany</h4>
+        <p>Konsola przeniosła rozgrywkę mobilną na nowy poziom, oferując stereoskopowy obraz 3D na górnym ekranie bez konieczności noszenia specjalnych okularów. Głębokość efektu można było regulować fizycznym suwakiem. Wprowadzono także funkcję StreetPass, która pozwalała konsoli uśpionej w plecaku wymieniać małe pakiety danych z urządzeniami innych przechodniów mijanych na ulicy.</p>
+
+        <aside>
+          <details>
+            <summary>Ciekawostka</summary>
+            <p>Początkowa sprzedaż urządzenia była słaba ze względu na wysoką cenę. Nintendo drastycznie obniżyło kwotę na półkach zaledwie kilka miesięcy po premierze. Aby zrekompensować stratę lojalnym klientom, uruchomiono Program Ambasadorów, rozdając wczesnym nabywcom darmowe pakiety klasycznych produkcji cyfrowych.</p>
+          </details>
+          <details>
+            <summary>Kontrowersje</summary>
+            <p>W okresie premiery pojawiły się liczne obawy medyczne dotyczące wpływu technologii 3D na rozwijający się wzrok u dzieci poniżej 7 roku życia. W odpowiedzi na te kontrowersje Nintendo wydało później model 2DS – pozbawiony efektu trójwymiaru, zamknięty w tańszej i bardziej wytrzymałej, jednobryłowej obudowie.</p>
+          </details>
+        </aside>
+      </article>
+    </section>
+    <section id="9th_gen">
+      <h2>9. generacja konsol</h2>
+      <p>IX generacja to przede wszystkim ostateczne starcie z długimi ekranami ładowania i pogoń za maksymalną płynnością. Zastosowanie ultraszybkich dysków SSD całkowicie zmieniło architekturę projektowania gier, pozwalając na błyskawiczne wczytywanie ogromnych, szczegółowych światów. To również okres implementacji zaawansowanego oświetlenia opartego na technologii śledzenia promieni (Ray Tracing) oraz fenomenalnego sukcesu konsol hybrydowych. Te ostatnie udowodniły, że gracze cenią sobie elastyczność i pragną bezproblemowo łączyć wysokiej jakości doświadczenia stacjonarne z graniem w podróży.</p>
+      <article id="xbox_series">
+        <h3>Xbox Series</h3>
+        <dl>
+          <dt>Data wydania:</dt>
+          <dd>2020</dd>
+          <dt>Wersje i rewizje:</dt>
+          <dd>Series X (flagowy, potężny model), Series S (budżetowy, cyfrowy model)</dd>
+          <dt>Nośnik:</dt>
+          <dd>Ultra HD Blu-ray (tylko w wersji Series X)</dd>
+        </dl>
+        <h4>Kluczowe zmiany</h4>
+        <p>Microsoft zaproponował dwojakie podejście do rynku, wydając jednocześnie maszynę premium do grania w 4K oraz bardzo tanią, pozbawioną napędu wersję celującą w 1440p. Technologicznym hitem okazała się funkcja Quick Resume, która dzięki dyskom SSD pozwala graczowi płynnie zamrażać i przełączać się między kilkoma uruchomionymi w tle rozbudowanymi tytułami w zaledwie kilka sekund.</p>
+
+        <aside>
+          <details>
+            <summary>Ciekawostka</summary>
+            <p>Kanciasta, przypominająca monolit konstrukcja Xboxa Series X stała się obiektem drwin i żartów porównujących ją do sprzętu AGD. Microsoft, wykazując się świetnym dystansem do siebie, spieniężył ten żart i wypuścił na rynek w pełni funkcjonalne minilodówki do napojów, ucharakteryzowane idealnie na wzór konsoli.</p>
+          </details>
+          <details>
+            <summary>Kontrowersje</summary>
+            <p>Polityka wydawnicza Microsoftu wymusza na deweloperach zachowanie pełnej funkcjonalności tytułów zarówno na potężnym modelu X, jak i na słabszym modelu S. Ze względu na mniejszą ilość pamięci RAM w Series S, twórcy gier często musieli opóźniać premiery zaawansowanych technologicznie tytułów, by odpowiednio zoptymalizować kod na słabszą platformę.</p>
+          </details>
+        </aside>
+      </article>
+      <article id="ps5">
+        <h3>PlayStation 5</h3>
+        <dl>
+          <dt>Data wydania:</dt>
+          <dd>2020</dd>
+          <dt>Wersje i rewizje:</dt>
+          <dd>Standard (z napędem), Digital (bez napędu), Slim (modułowy napęd), Pro</dd>
+          <dt>Nośnik:</dt>
+          <dd>Ultra HD Blu-ray (w wersji z napędem)</dd>
+        </dl>
+        <h4>Kluczowe zmiany</h4>
+        <p>Dziewiąta generacja to przede wszystkim pożegnanie z wolnymi dyskami talerzowymi. Sony zastosowało ultraszybki dysk SSD NVMe z unikalną architekturą, co praktycznie wyeliminowało długie ekrany ładowania. Ogromną rewolucją okazał się kontroler DualSense, który wprowadził adaptacyjne spusty (stawiające fizyczny opór pod palcami) oraz precyzyjne wibracje haptyczne, pozwalające "poczuć" np. krople wirtualnego deszczu.</p>
+
+        <aside>
+          <details>
+            <summary>Ciekawostka</summary>
+            <p>Futurystyczny, dwukolorowy design konsoli i jej gigantyczne rozmiary wywołały lawinę internetowych memów. Użytkownicy masowo przyrównywali urządzenie do futurystycznych wieżowców czy nowoczesnych domowych ruterów Wi-Fi. Pod względem gabarytów jest to jedna z największych stacjonarnych konsol w historii.</p>
+          </details>
+          <details>
+            <summary>Kontrowersje</summary>
+            <p>Premiera sprzętu zbiegła się z globalnym kryzysem na rynku półprzewodników. Konsole były praktycznie nieosiągalne w sklepach przez pierwsze dwa lata, a sytuację pogarszały boty zakupowe tzw. "skalperów", którzy wykupywali resztki asortymentu w ułamku sekundy, by następnie odsprzedawać je w internecie za podwójną, a nawet potrójną cenę.</p>
+          </details>
+        </aside>
+      </article>
+      <article id="switch">
+        <h3>Nintendo Switch</h3>
+        <dl>
+          <dt>Data wydania:</dt>
+          <dd>2017</dd>
+          <dt>Wersje i rewizje:</dt>
+          <dd>V1, V2 (lepsza bateria), Lite (tylko przenośna), OLED</dd>
+          <dt>Nośnik:</dt>
+          <dd>Kartridże flash</dd>
+        </dl>
+        <h4>Kluczowe zmiany</h4>
+        <p>Switch na nowo zdefiniował pojęcie grania, wprowadzając koncepcję konsoli hybrydowej. Urządzenie pozwala na płynne przejście z trybu stacjonarnego na telewizorze do trybu przenośnego poprzez proste wysunięcie tabletu ze stacji dokującej. Odłączane kontrolery Joy-Con wyposażono w zaawansowane silniki haptyczne (HD Rumble), potrafiące z ogromną precyzją symulować wibracje strukturalne.</p>
+
+        <aside>
+          <details>
+            <summary>Ciekawostka</summary>
+            <p>Ze względu na małe rozmiary kartridżów, istniało ryzyko, że małe dzieci mogą je połknąć. Aby temu zapobiec, Nintendo pokryło powierzchnię nośników benzoesanem denatonium – niezwykle gorzką, choć nietoksyczną substancją chemiczną, która natychmiast wywołuje odruch wyplucia.</p>
+          </details>
+          <details>
+            <summary>Kontrowersje</summary>
+            <p>Zmorą inżynieryjną tego sprzętu stał się tzw. "Joy-Con Drift". Wadliwe materiały wewnątrz analogów z czasem ulegały ścieraniu, przez co kontrolery rejestrowały ruch nawet wtedy, gdy gracz ich nie dotykał. Doprowadziło to do pozwów zbiorowych i wymusiło na Nintendo wdrożenie programu darmowej naprawy uszkodzonych elementów.</p>
+          </details>
+        </aside>
+      </article>
+    </section>
+    <section id="10th_gen">
+      <h2>10. generacja konsol</h2>
+      <p>X generacja to krok w stronę zacierania granic między tradycyjnym, lokalnym sprzętem a nieskończoną mocą obliczeniową usług w chmurze oraz potęgą sztucznej inteligencji. Twórcy platform skupili się na zaawansowanych algorytmach skalowania obrazu wspieranych przez AI, które pozwalają generować fotorealistyczną grafikę przy znacznie mniejszym obciążeniu fizycznych podzespołów. To czas, w którym mobilność nie zmusza już do bolesnych kompromisów wizualnych, a bezproblemowa wsteczna kompatybilność i przenoszenie swoich cyfrowych bibliotek stały się absolutnym, rynkowym standardem.</p>
+      <article id="switch_2">
+        <h3>Nintendo Switch 2</h3>
+        <dl>
+          <dt>Data wydania:</dt>
+          <dd>Okolice 2025/2026</dd>
+          <dt>Wersje i rewizje:</dt>
+          <dd>Model premierowy</dd>
+          <dt>Nośnik:</dt>
+          <dd>Nowy format kartridży (Switch 2 Game Card)</dd>
+        </dl>
+        <h4>Kluczowe zmiany</h4>
+        <p>Kolejna odsłona hybrydowej koncepcji Nintendo, która zatarła jeszcze mocniej granice między sprzętem stacjonarnym a mobilnym. Największą sprzętową rewolucją było wdrożenie technologii wspieranej sztuczną inteligencją – NVIDIA DLSS. Pozwoliło to na drastyczny skok jakości wizualnej, umożliwiając renderowanie na ekranie przenośnym zasobożernych i zaawansowanych graficznie środowisk bez obciążania i przegrzewania podzespołów zasilanych baterią.</p>
+
+        <aside>
+          <details>
+            <summary>Ciekawostka</summary>
+            <p>Z myślą o milionach oddanych graczy, sprzęt został w pełni przystosowany do wstecznej kompatybilności. Zarówno kontrolery z pierwszego Switcha, jak i fizyczne małe kartridże z poprzedniej dekady bez problemu działają na nowej architekturze, chroniąc zebrane kolekcje entuzjastów przed zapomnieniem.</p>
+          </details>
+          <details>
+            <summary>Kontrowersje</summary>
+            <p>Debiut konsoli na rynku spotkał się z chłodnym przyjęciem ze względu na drastyczną zmianę polityki cenowej. Ustalenie nowej ceny startowej, znacznie przewyższającej pułap bazowych modeli pierwowzoru, wywołało w sieci burzę. Gracze narzekali, że firma odcina się od wizerunku "taniej wejściówki do świata gier", uderzając w kieszenie mniej zamożnych konsumentów.</p>
+          </details>
+        </aside>
+      </article>
+    </section>
+    <table id="sales_table">
+      <caption>Tabela: Zestawienie całkowitej sprzedaży konsol VII-X generacji (w milionach sztuk, stan na 2026 r.)</caption>
+      <thead>
+      <tr>
+        <th scope="col">Generacja</th>
+        <th scope="col">Producent</th>
+        <th scope="col">Konsola</th>
+        <th scope="col">Sprzedaż (mln sztuk)</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row" rowspan="5">VII Generacja</th>
+        <td>Nintendo</td>
+        <td>Nintendo DS</td>
+        <td>~ 154.02</td>
+      </tr>
+      <tr>
+        <td>Nintendo</td>
+        <td>Nintendo Wii</td>
+        <td>~ 101.63</td>
+      </tr>
+      <tr>
+        <td>Sony</td>
+        <td>PlayStation 3</td>
+        <td>~ 87.40</td>
+      </tr>
+      <tr>
+        <td>Microsoft</td>
+        <td>Xbox 360</td>
+        <td>~ 84.00</td>
+      </tr>
+      <tr>
+        <td>Sony</td>
+        <td>PlayStation Portable (PSP)</td>
+        <td>~ 80.00</td>
+      </tr>
+
+      <tr>
+        <th scope="row" rowspan="5">VIII Generacja</th>
+        <td>Sony</td>
+        <td>PlayStation 4</td>
+        <td>~ 117.20</td>
+      </tr>
+      <tr>
+        <td>Nintendo</td>
+        <td>Nintendo 3DS</td>
+        <td>~ 75.94</td>
+      </tr>
+      <tr>
+        <td>Microsoft</td>
+        <td>Xbox One</td>
+        <td>~ 58.00</td>
+      </tr>
+      <tr>
+        <td>Sony</td>
+        <td>PlayStation Vita</td>
+        <td>~ 15.00</td>
+      </tr>
+      <tr>
+        <td>Nintendo</td>
+        <td>Wii U</td>
+        <td>~ 13.56</td>
+      </tr>
+
+      <tr>
+        <th scope="row" rowspan="3">IX Generacja</th>
+        <td>Nintendo</td>
+        <td>Nintendo Switch</td>
+        <td>~ 154.00</td>
+      </tr>
+      <tr>
+        <td>Sony</td>
+        <td>PlayStation 5</td>
+        <td>~ 92.20</td>
+      </tr>
+      <tr>
+        <td>Microsoft</td>
+        <td>Xbox Series X/S</td>
+        <td>~ 30.00</td>
+      </tr>
+
+      <tr>
+        <th scope="row">X Generacja</th>
+        <td>Nintendo</td>
+        <td>Nintendo Switch 2</td>
+        <td>Brak danych (świeża premiera)</td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+        <td colspan="4">Uwaga: Dane sprzedażowe są wartościami przybliżonymi na podstawie oficjalnych raportów finansowych producentów z początku 2026 roku.</td>
+      </tr>
+      </tfoot>
+    </table>
+  </section>
+  <section id="my_collection">
+    <h2>Moja kolekcja</h2>
+    <fieldset>
+      <legend>Najważniejsze informacje</legend>
+      <p>Poniżej znajdziesz moją osobistą historię z każdą z moich konsol oraz ich zdjęcia.</p>
+    </fieldset>
+    <article id="my_xbox360">
+      <h3>Xbox 360</h3>
+      <p>To jest moja pierwsza konsola, którą posiadam nieprzerwanie od 18 lat. Widać, że nadgryzł ją już ząb czasu, ale wciąż świetnie sobie radzi i wszystko w niej działa! Miałem to szczęście, że moją konsolę nie dotknęło wcześniej wspomnianie red ring of death i przez te wszystkie lata nigdy mnie nie zawiodła. Oczywiście przez ostatnie 10 lat nie używam już jej tak jak kiedyś, a tylko do sporadycznych rozgrywek. Nadal pamiętam jak w wakację pojechaliśmy wraz z tatą i kuzynem do elektromarketu właśnie po tego xboxa, który w zestawie w opakowaniu miał jeszcze 2 gry - Halo 3 oraz Halo Wars. Halo 3 to był wtedy prawdziwy hit, ukończyłem tę grę wiele razy sam, a nawet zdarzyło mi się przejść całą fabułę grając z przyjacielem na podzielonym ekranie. Pamiętam każdą grę, w którą grałem na tym xboxie, zaczynając od przeróżnych gier serii FIFA, kolejnych części Assassin's creed, GTA i kończąc na serii Forza. Wielu powie, że PlayStation 3 w tamtych czasach było lepszym sprzętem (z czym się również zgadzam), ale w moim subiektywnym rankingu najlepszych konsol xbox 360 zawsze znajdzie się na podium, bo przez wiele lat dostarczał mi wiele radości, a ja na kilkanaście lat stałem się xboxiarzem.</p>
+      <figure>
+        <img src="img/xbox_360.JPG" alt="Zdjęcie mojej białej konsoli Xbox 360">
+        <figcaption>Mój pierworodny, ale wciąż w 100% sprawny Xbox 360.</figcaption>
+      </figure>
+    </article>
+    <article id="my_ps3">
+      <h3>PlayStation 3</h3>
+      <p>Może się to wydawać dość zaskakujące, ale PlayStation 3 nie trafiła w moje posiadanie w trakcie 7. generacji. Już w tekście o moim xboxie 360 wspominałem, że na jakiś czas stałem się fanem tylko jednej konsoli i w mini wojence PlayStation vs Xbox byłem po stronie zielonych. Dlatego PlayStation 3 trafiło w moje posiadanie dopiero rok temu i to po zakupie PlayStation 5! I teraz pytanie, które zapewne pojawiło się w Twojej głowie. Dlaczego kupiłem konsolę z tej samej generacji co xbox 360? Powodody może i są tylko dwa, ale nie są to bylejakie powody, zacznę może od tego drugiego. Ciekawość! Z PlayStation 3 nigdy nie miałem za dużo do czynienia. Grałem na niej kilka razy u znajomego, ale nigdy nie miałem okazji usiąść z kontrolerem w ręcę i przekonać się czym tak naprawdę jest ta konsola. Natomiast tym najważniejszym powodem jest emulacja PlayStation 3, która obecnie jest bardzo trudna ze względu na zastosowany w niej dość nietypowy procesor Cell. Dlatego jeśli gra wyszła tylko na PlayStation 3 i nie została przeportowana na inną konsolę to tak naprawdę jedyną opcją na ogranie tego tytułu jest PlayStation 3. I co ciekawie jest tych gier całkiem sporo. Jeśli chodzi samą konsolę to muszę przyznać, że jestem pod wrażeniem jaką niesamowitą multimedialną maszynę stworzyło Sony. Konsola nie ograniczała się tylko do gier. Mogliśmy na niej odtwarzać filmy blu-ray, muzykę i była też wbudowana przeglądarka internetowa. To wszystko sprawia, że konsola robi wrażenie nawet po prawie 20 latach od swojej premiery.</p>
+      <figure>
+        <img src="img/PS3.JPG" alt="Zdjęcie mojej czarnej konsoli PS3 w wersji slim">
+        <figcaption>Slim wygląda bardzo grzecznie w porównaniu do wersji FAT</figcaption>
+      </figure>
+    </article>
+    <article id="my_wii">
+      <h3>Nintendo Wii</h3>
+      <p>Wiele razy myślałem o tym, żeby kupić sobie swoje pierwsze Wii. Nie było to oczywiście w czasach, gdy rządziła 7. generacja konsol, bo nawet nie wiedziałem, że coś takiego jak Nintendo Wii istnieje. Dla mnie wtedy liczył się Xbox, a Nintendo kojarzyło mi się tylko z konsolami przenośnymi. To wszystko zmieniło się dopiero po zakupie mojej pierwszej konsoli od Nintendo - Nintendo Switch. Przekonałem się wtedy jak niesamowite są gry od Nintendo i jak wiele mnie przez ten cały czas ominęło. "Muszę to wszystko nadrobić" pomyślałem. I tak narodził się pomysł zakupu najlepiej sprzedającej się konsoli 7. generacji - Nintendo Wii. Oczywiście wcześniej obejrzałem na youtube setki materiałów na ten temat co mnie jeszcze bardziej nakręcało do zakupu Wii i wiesz co? Było warto! Pomimo braku HD i ewidentnie słabszego od konkurencji sprzętu to Nintendo pod względem grywalności bije wszystkich. Wyobraź sobie, że odkąd kupiłem Wii to na wspólnych spotkaniach ze znajomymi gramy tylko na Wii. Udało mi się nawet przekonać moich rodziców do zagrania na Wii i świetnie się przy tym razem bawiliśmy rzucając wirtualne kule do kręgli. Konsola już wtedy łączyła pokolenia i jak widać robi to nadal. </p>
+      <figure>
+        <img src="img/wii.JPG" alt="Zdjęcie mojej białej konsoli Wii w wersji obsługującej kontroler gamecube">
+        <figcaption>Trzeba przyznać, że w 7. generacji najlepszy design miała konsola od Nintendo</figcaption>
+      </figure>
+    </article>
+    <article id="my_psp">
+      <h3>PlayStation Portable</h3>
+      <p>Dla wielu graczy urodzonych na przełomie wieków to właśnie PSP było ich pierwszą konsolą do grania. Pamiętam jak kolega przyniósł do szkoły PSP. Byłem szoku, że tak małe urządzenie potrafi wyświetlać gry z dużych konsol. Ostatecznie sam stałem się właścicielem PSP, mimo że konsola trafiła do mnie dopiero po 17 latach od skończenia podstawówki. Może nie była pieerwszą konsolą w moim życiu, ale była pierwszą konsolą, od której kolekcjonowanie konsol się zaczęło. Szczerze mówiąc to w ogóle nie planowałem kupować tej konsolki i od niej zaczynać kolekcję. W tym czasie bardzo poważnie myślałem o zakupie Nintendo Wii, opowiadałem o tym mojemu dobremu znajomemu. Los chciał, że ów znajomy miał u siebie nieużywane PSP i sprezentował mi je przy najbliższym spotkaniu. Wymieniłem baterię i mimo spędzenia prawie 15 lat w szafce konsola włączyła się jakby ostatnia sesja grania miałą miejsce wczoraj. Sama bryła konsoli jak na dzisiejsze czasy bardzo dobrze się zestarzała i prezentuje się bardzo dobrze. Ergonomia też nie jest najgorsza i da się pograć dłużej niż godzinę bez drętwienia rąk. Gry 3D nadal robią bardzo dobre wrażenie zwłaszcza, że to jest konsola przenośna. Jedynym zastrzeżeniem jakie mam to ekran, który jest najsłabszym elementem tej konsoli. Bardzo widać na nim ghosting przez co ma się wrażenie, że każdy ruch jest rozmazany. Jednak nie było to na tyle uciążliwe żeby przeskodziło mi to w ukończeniu całej kolekcji GoD of War, Gran Turismo czy serii GTA. Za każdym razem gdy gram na PSP mam wrażenie jakbym na chwilę przeniósł się w czasie do lat dzieciństwa, ale tym razem mam swoją wymarzoną kieszonsolkę PSP. </p>
+      <figure>
+        <img src="img/psp.JPG" alt="Zdjęcie mojej czarnej konsoli PSP w wersji 2004">
+        <figcaption>Z daleka wygląda jakby składała się z samego ekranu, jest przeogromny!</figcaption>
+      </figure>
+    </article>
+    <article id="my_3ds">
+      <h3>Nintendo 3DS</h3>
+      <p>Od zawsze fascynował mnie ekran 3DS'a, który wyświetla obraz 3D bez potrzeby użycia okularów, więc kiedy przyszła mi myśl o powiększenia kolekcji o prawdziwego handhelda od Nintendo to wiedziałem, że musi być to Nintendo 3DS. Byłem bardzo przekonany co do zakupu, ale nie mogłem znaleźć odpowiedniej ceny. Zwłaszcza, że przez ostatnie lata używane konsole Nintendo 3DS bardzo podrożały. Zmotywowany wysokimi cenami zdecydowałem, że poszukam konsoli na wcześniej mi nieznanych japońskich serwisach aukcyjncych. To był strzał w 10tkę. Ceny Nintendo 3DS, były nawet o połowę niższe niż w europie i przy okazji w lepszym stanie. Spędziłem trochę czasu na wyszukaniu idealnego modelu w idealnej cenie i tak o to udało mi się zakupić Nintendo 3DS. Konsolka ma wsteczną kompatybilność, bo korzysta z tych samych kartridży co Nintendo DS, więc bibilioteka wszystkich dostępnych gier na 3DS jest liczona w tysiącach. Mnie najbardziej jednak interesowały gry, które były zaprogramowane z myślą o ekranie 3D. Żaden emulator nie jest w stanie emulować ekranu 3D, a nie zapominajmy, że Nintendo 3DS ma też drugi ekran, który jest dotykowy. Efekt 3D nawet dzisiaj robi ogromne wrażenie, a drugi ekran dotykowy idealnie dopełnia całość. Konsla ma nawet wbudowaną z przodu kamerkę, która jest w stanie wykonać zdjęcia 3D. Oczywiście najważniejsze są gry i jak wspominałem biblioteka gier liczona jest w tysiącach. Są to świetne tytuły, w które gram do teraz! Według mnie jest to handheld ostateczny i prawdopodobnie nigdy więcej coś podobnego nie będzie miało miejsca, bo firmy odeszły od konsol przenośnych i skupiły się na konsolach stacjonarnych. A zapotrzebowanie jest duże, bo ceny Nintendo 3DS szybują w góre i z roku na rok konoslki są co raz droższe.  </p>
+      <figure>
+        <img src="img/3ds.JPG" alt="Zdjęcie mojej otwartej czarnej konsoli Nintendo 3DS">
+        <figcaption>Górny ekran z 3D, a dolny dotykowy, ale oni to wymyślili!</figcaption>
+      </figure>
+    </article>
+    <article id="my_vita">
+      <h3>PlayStation Vita</h3>
+      <p>Vita trafiła w moje ręce dość niedawno i szczerze mówiąc to nie wiem co o niej myśleć. Z jednej strony mocą obliczeniową bije na głowę Nintendo 3DS, a z drugiej strony nie ma na niej za bardzo w co grać. Sony bardzo szybko porzuciło Vitę i już po 2 latach od premiery za bardzo nie było tytułów, które by przekonały konsumenta do zakupu. Pamiętam jak Vita dopiero co wyszła na rynek i jak bardzo chciałem mieć tę konsolkę. Obiecałem sobie, że jak wyjdzie następca PSP to od razu lecę do sklepu i kupuję konsolke. Cena jednak była zaporowa, bo Vita kosztowała tyle samo co konsola stacjonarna więc szybko dałem sobie spokój. Już rok po premierze zapomniałem, że w ogóle PS Vita pojawiła się na rynku. Spzęt sam w sobie jest fenomenalny i zdecydowanie wyprzedził swoje czasy, a OLEDowy ekran musiał robić w 2011 roku niesamowite wrażenie. Swoją Vitę (w wersji slim)  tak samo jak 3DS'a sprowadzałem z Japonii za połowę tego ile trzeba zapłacić obecnie w europie. Konsolka bardzo dobrze leży w dłoni, wyświetla bardzo ładny obraz, a gry wyglądają jakbyśmy mieli w ręcę przenośne PS3. Szkoda, że losy Vity (łac. życie) tak się potoczyły i tak szybko sony opuściło ten pełen potencjału sprzęt. </p>
+      <figure>
+        <img src="img/vita.JPG" alt="Zdjęcie mojej czarnej konsoli PS Vita w wersji slim">
+        <figcaption>Wygląd? Jest. Moc? Jest. Gry? Gry? (cisza...)</figcaption>
+      </figure>
+    </article>
+    <article id="my_switch">
+      <h3>Nintendo Switch</h3>
+      <p>Co tutaj dużo mówić - jest to najlepsza konsola ever! Pamiętam jak długo w raz z moim przyjacielem zastanawialiśmy się nad zakupem Switcha. Każdy z nas miał już wtedy PlayStation 5, albo Xboxa Series i Switch wydawał się zbędnym zakupem. Nic bardziej mylnego! Jak to powiedział przyjaciel mesiąc po zakupie Switcha - Żałuję, że go kupiłem tak późno. W pełni się pod tymi słowami podpisuje. Mimo że w konsoli siedzi już stary procesor od Nvidii to w przypadku Switcha działa tzw. magia nintendo. Gry są tak dobrze dopracowane jeśli chodzi o rozgrywkę, że grafika schodzi na dalszy plan. Posiadam na tę platformę kilkadziesiąt gier i nie żałuję ani jednej wydanej złotówki. Śmiało mogę powiedzieć, że konsola przywróciła mi chęć do grania kiedy myślałem, że pociąg z graniem w gry już mi dawno odjechał. Prawdopodobnie gdyby nie switch to nie zacząłbym kolekcjonować pozostałych konsol i moja przygoda z grami skończyłaby się w 2020 roku. Gdyby ktoś mnie zapytał o moją ulubioną grę wszechczasów to bez zawahania powiedziałbym - The Legend of Zelda: Tears of the Kingdom, która wyszła na switcha. Główną zaletą jest zdecydowanie hybrodowość konsoli. Pomimo braku czasu byłem w stanie np. w drodze do pracy przejść jakiś poziom w grze. Przez to wszędzie, gdzie wiem, że czeka mnie dłuższa podróż zabieram ze sobą pstryka. </p>
+      <figure>
+        <img src="img/switch1.JPG" alt="Zdjęcie mojej konsoli Nintedo Switch wersja V2 z niebieskim i czerwonym joy-conem">
+        <figcaption>Niech cie nie zmyli wygląd zabawki. To potężne urządzenie wyciąga z człowieka jego wewnętrzne dziecko!</figcaption>
+      </figure>
+      <figure>
+        <img src="img/switch_oled.JPG" alt="Zdjęcie mojej konsoli Nintedo Switch wersja OLED z białymi joy-conami">
+        <figcaption>Nie wspominałem, że mam wersję OLED? </figcaption>
+      </figure>
+    </article>
+    <article id="my_xbox_series">
+      <h3>Xbox Series S</h3>
+      <p>Jest to moja pierwsza konsola obecnej, ale kończącej się już generacji. Z perspektywy czasu myślę, że to był najlepszy zakup w tamtym okresie, bo  Series S oferował taniego game pass'a i przy tym gry najnowszej generacji za połowę tego co musiałbym zapłacić za PlayStation 5 czy Xboxa Series X. Świetnie bawiłem się grając na nim w przeróżne tytuły, ale głównie śłużył mi do grania w FIFE. Nie wiele mogę tutaj dodać, bo to jest po prostu poprawna konsola, wprowadziła szybsze czasy ładowania i umożliwia tanie granie. Obecnie nie rozpatrywałbym jej jako wartą zakupu, bo polityka Microsoftu co do konsol zmieniła się dość znacząco, ceny poszybowały, a sama marka Xbox też nie ma za bardzo nic do zaoferowania. Szkoda, że sukces Xboxa 360 wygląda po tych kilkunastu latach bardziej jak wypadek przy pracy niż coś będącego efektem dobrego planu.</p>
+      <figure>
+        <img src="img/xbox_series.JPG" alt="Zdjęcie mojej białej konsoli Xbox Series S">
+        <figcaption>Niesamowite, że upchali tyle mocy w tak małym urządzeniu</figcaption>
+      </figure>
+    </article>
+    <article id="my_ps5">
+      <h3>PlayStation 5</h3>
+      <p>Długo broniłem się przed zakupem mojej pierwszej konsoli od Sony, ale trzeba powiedzieć sobie prawdę w oczy, że w pojedynku Xbox vs PlayStation to PlayStation wygrywało na każdym polu. Sprzedaż, gry, sprzęt, potencjalne premiery gier, to wszystko Sony w tej generacji zrobiło lepiej od Microsoftu. Dodatkowo PlayStation 5 oferuje wsteczną kompatybilność, więc opróćz gier na obecną generacje mogłem zagrać w tytuły, które mnie ominęły przez brak posiadania PlayStation 4. Mimo że PS5 kupiłem dość późno, bo mam ją od ponad roku to nie żałuję zakupu. W tym czasie nadrobiłem większość tzw. gier na wyłączność, a także doceniłem kunszt twórców gier na tę platformę. Muszę przyznać, że PS5 trochę się przyczyniło do tego, że zacząłem zbierać konsole starsze konsole, bo kilka miesięcy od zakupu dostałem od znajomego swoje pierwsze PSP, a potem kupiłem używane PS3. To dość zabawne, że przygodę z Sony zacząłęm dopiero od PS5 patrząc na to, że obecnie posiadam najwięcej konsol właśnie od Sony.
+      </p>
+      <figure>
+        <img src="img/ps5.JPG" alt="Zdjęcie mojej białej konsoli PlayStation 5 w wersji slim">
+        <figcaption>Po tylu latach od premiery PS5 nadal nie przyzwyczaiłem się do tego "futurystycznego wyglądu" </figcaption>
+      </figure>
+    </article>
+  </section>
+</main>
+<footer>
+  <section id="kontakt">
+    <h3>Kontakt ze mną</h3>
+    <p>Szukasz konsoli dla siebie i nie wiesz co kupić? A może wiesz już co chcesz kupić, ale nie wiesz gdzie szukać? Uzupełnij formularz, a skontaktuję się z Tobą!</p>
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Twoje dane kontaktowe</legend>
+
+        <p>
+          <label for="imie">Imię:</label>
+          <input type="text" id="imie" name="imie" required minlength="2">
+        </p>
+
+        <p>
+          <label for="email">Adres e-mail:</label>
+          <input type="email" id="email" name="email" required>
+        </p>
+
+        <p>
+          <label for="telefon">Numer telefonu (opcjonalnie):</label>
+          <input type="tel" id="telefon" name="telefon" pattern="[0-9]{9}">
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Szczegóły zapytania</legend>
+
+        <p>
+          <label for="temat">Wybierz temat rozmowy:</label>
+          <select id="temat" name="temat" required>
+            <option value="">-- Wybierz z listy --</option>
+            <option value="kupno">Porada przy zakupie konsoli</option>
+            <option value="wycena">Wycena starego sprzętu</option>
+            <option value="inne">Inne zapytanie</option>
+          </select>
+        </p>
+
+        <p>
+          <label>Interesuje Cię sprzęt:</label>
+        </p>
+        <p>
+          <input type="radio" id="stan_nowy" name="stan" value="nowy" required>
+          <label for="stan_nowy">Tylko nowy (fabrycznie zapakowany)</label>
+
+          <input type="radio" id="stan_uzywany" name="stan" value="uzywany">
+          <label for="stan_uzywany">Może być używany</label>
+        </p>
+
+        <p>
+          <label for="budzet">Twój maksymalny budżet (PLN):</label>
+          <input type="number" id="budzet" name="budzet" min="100" max="10000" step="50">
+        </p>
+
+        <p>
+          <label for="data_kontaktu">Preferowana data kontaktu:</label>
+          <input type="date" id="data_kontaktu" name="data_kontaktu">
+        </p>
+
+        <p>
+          <label for="wiadomosc">Treść wiadomości:</label>
+        </p>
+        <p>
+          <textarea id="wiadomosc" name="wiadomosc" rows="5" cols="40" required minlength="10"></textarea>
+        </p>
+      </fieldset>
+
+      <p>
+        <input type="checkbox" id="zgoda" name="zgoda" required>
+        <label for="zgoda">Wyrażam zgodę na przetwarzanie moich danych w celu kontaktu.</label>
+      </p>
+
+      <p>
+        <button type="submit">Wyślij zapytanie</button>
+      </p>
+    </form>
+    <address>
+      E-mail: <a href="mailto:kacper.golubski@student.pl">kacper.golubski@student.pl</a><br>
+      Discord: GamerStudent#1234
+    </address>
+  </section>
+  <section id="zrodla">
+    <h3>Bibliografia i źródła danych</h3>
+    <dl>
+      <dt>Historia i generacje konsol</dt>
+      <dd>Większość faktów historycznych oraz dat premier opracowano na podstawie artykułów z serwisu <cite><a href="https://pl.wikipedia.org/wiki/Historia_gier_komputerowych_(si%C3%B3dma_generacja)" target="_blank">wikipedia.org</a></cite>.
+      </dd>
+      <dt>Dane techniczne</dt>
+      <dd>Specyfikacje procesorów i układów graficznych bazują na dokumentacji technicznej zawartej w <cite><a href="https://pl.wikipedia.org/wiki/Historia_gier_komputerowych_(si%C3%B3dma_generacja)" target="_blank">wikipedia.org</a></cite>.
+      </dd>
+      <dt>Grafika i Stylistyka</dt>
+      <dd>Logotypy tekstowe wykonano w technice ASCII Art z <cite><a href="https://www.asciiart.eu" target="_blank">asciiart.eu</a></cite>, a zdjęcia pochodzą z prywatnej galerii.</dd>
+    </dl>
+  </section>
+  <p>&copy; 2026 Moja Kolekcja Konsol. Wszystkie prawa zastrzeżone.</p>
+  <a href="#">Wróć na początek strony</a>
+</footer>
+</body>
+</html>
