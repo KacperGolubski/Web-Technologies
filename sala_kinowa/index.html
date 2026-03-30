@@ -12,20 +12,67 @@
     </header>
 <main>
     <section id="seats">
-
+    <p>Pozostała liczba wolnych miejsc: <span id="free_seats">150</span></p>
     </section>
     <form id="form">
-        <fieldset>
-            <legend>Wybierz miejsca, rodzaj biletu i wprowadź dane</legend>
+        <label for="client_name">Nazwa rezerwacji:</label>
+        <input type="text" id="client_name" required>
+
+        <fieldset id="tickets">
+            <legend>Wybierz miejsca, rodzaj biletów i wprowadź dane</legend>
+            <ol>
+                <li class="slot" id="slot1">
+                    <span class="seat-info">Wybierz miejsce</span>
+                    <select id="ticket_type_1" name="ticket_type_1" required>
+                        <option value="">-- Wybierz rodzaj biletu --</option>
+                        <option value="free">Dzieci poniżej 6. roku życia</option>
+                        <option value="reduced">Dzieci i młodzież w wieku szkolnym od 6. do 19. roku życia (za okazaniem ważnej legitymacji)</option>
+                        <option value="student">Studenci do 26. roku życia (za okazaniem ważnej legitymacji)</option>
+                        <option value="standard">Standard, bez ulgi</option>
+                    </select>
+                </li>
+                <li class="slot" id="slot2">
+                    <span class="seat-info">Wybierz miejsce</span>
+                    <select id="ticket_type_2" name="ticket_type_2" required>
+                        <option value="">-- Wybierz rodzaj biletu --</option>
+                        <option value="free">Dzieci poniżej 6. roku życia</option>
+                        <option value="reduced">Dzieci i młodzież w wieku szkolnym od 6. do 19. roku życia (za okazaniem ważnej legitymacji)</option>
+                        <option value="student">Studenci do 26. roku życia (za okazaniem ważnej legitymacji)</option>
+                        <option value="standard">Standard, bez ulgi</option>
+                    </select>
+                <li class="slot" id="slot3">
+                    <span class="seat-info">Wybierz miejsce</span>
+                    <select id="ticket_type_3" name="ticket_type_3" required>
+                        <option value="">-- Wybierz rodzaj biletu --</option>
+                        <option value="free">Dzieci poniżej 6. roku życia</option>
+                        <option value="reduced">Dzieci i młodzież w wieku szkolnym od 6. do 19. roku życia (za okazaniem ważnej legitymacji)</option>
+                        <option value="student">Studenci do 26. roku życia (za okazaniem ważnej legitymacji)</option>
+                        <option value="standard">Standard, bez ulgi</option>
+                    </select>
+                </li>
+                <li class="slot" id="slot4">
+                    <span class="seat-info">Wybierz miejsce</span>
+                    <select id="ticket_type_4" name="ticket_type_4" required>
+                        <option value="">-- Wybierz rodzaj biletu --</option>
+                        <option value="free">Dzieci poniżej 6. roku życia</option>
+                        <option value="reduced">Dzieci i młodzież w wieku szkolnym od 6. do 19. roku życia (za okazaniem ważnej legitymacji)</option>
+                        <option value="student">Studenci do 26. roku życia (za okazaniem ważnej legitymacji)</option>
+                        <option value="standard">Standard, bez ulgi</option>
+                    </select>
+                </li>
+                <li class="slot" id="slot5">
+                    <span class="seat-info">Wybierz miejsce</span>
+                    <select id="ticket_type_5" name="ticket_type_5" required>
+                        <option value="">-- Wybierz rodzaj biletu --</option>
+                        <option value="free">Dzieci poniżej 6. roku życia</option>
+                        <option value="reduced">Dzieci i młodzież w wieku szkolnym od 6. do 19. roku życia (za okazaniem ważnej legitymacji)</option>
+                        <option value="student">Studenci do 26. roku życia (za okazaniem ważnej legitymacji)</option>
+                        <option value="free">Standard, bez ulgi</option>
+                    </select>
+                </li>
+            </ol>
             <p>
-                <label for="rodzaj_biletu">Wybierz rodzaj biletu</label>
-                <select id="rodzaj_biletu" name="rodzaj_biletu" required>
-                    <option value="">-- Wybierz z listy --</option>
-                    <option value="darmowy">Dzieci poniżej 6. roku życia</option>
-                    <option value="ulgowy">Dzieci i młodzież w wieku szkolnym od 6. do 19. roku życia (za okazaniem ważnej legitymacji)</option>
-                    <option value="studencki">Studenci do 26. roku życia (za okazaniem ważnej legitymacji)</option>
-                    <option value="standard">Standard, bez ulgi</option>
-                </select>
+
             </p>
             <p>
                 <label for="imie">Imię:</label>
@@ -36,13 +83,14 @@
                 <input type="email" id="email" name="email" required>
             </p>
             <button type="submit">Zatwierdź</button>
+
         </fieldset>
     </form>
-    <section id="chosen_seats">
-
-    </section>
     <section id="cancelation">
-
+        <h2>Anuluj rezerwację</h2>
+        <label for="cancel_reservation_id">Podaj nazwę rezerwacji:</label>
+        <input type="text" id="cancel_reservation_id" placeholder="np. 2137">
+        <button type="button" id="reservation_cancel">Anuluj rezerwację</button>
     </section>
 </main>
 </body>
