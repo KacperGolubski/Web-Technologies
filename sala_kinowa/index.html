@@ -6,6 +6,44 @@
     <title>TurboKino</title>
 </head>
 <body>
+    <header>
+        <h1>TurboKino</h1>
+        <p>Rezerwujesz miejsca na film: X</p>
+    </header>
+<main>
+    <section id="seats">
 
+    </section>
+    <form id="form">
+        <fieldset>
+            <legend>Wybierz miejsca, rodzaj biletu i wprowadź dane</legend>
+            <p>
+                <label for="rodzaj_biletu">Wybierz rodzaj biletu</label>
+                <select id="rodzaj_biletu" name="rodzaj_biletu" required>
+                    <option value="">-- Wybierz z listy --</option>
+                    <option value="darmowy">Dzieci poniżej 6. roku życia</option>
+                    <option value="ulgowy">Dzieci i młodzież w wieku szkolnym od 6. do 19. roku życia (za okazaniem ważnej legitymacji)</option>
+                    <option value="studencki">Studenci do 26. roku życia (za okazaniem ważnej legitymacji)</option>
+                    <option value="standard">Standard, bez ulgi</option>
+                </select>
+            </p>
+            <p>
+                <label for="imie">Imię:</label>
+                <input type="text" id="imie" name="imie" required minlength="2">
+            </p>
+            <p>
+                <label for="email">Adres e-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </p>
+            <button type="submit">Zatwierdź</button>
+        </fieldset>
+    </form>
+    <section id="chosen_seats">
+
+    </section>
+    <section id="cancelation">
+
+    </section>
+</main>
 </body>
 </html>
