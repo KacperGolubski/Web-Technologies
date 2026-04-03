@@ -3,6 +3,7 @@ let seats = [];
 for(let i = 1; i <= 150; i++) {
     seats.push({id: i, status: "free"});
     const seatElement = document.createElement("div");
+    seatElement.id = "seat_" + i;
     seatElement.classList.add("seat", "free");
     seatElement.textContent = i;
     seatElement.addEventListener("click", function(event) {
@@ -81,5 +82,22 @@ console.log("Cinema seats:", seats);
 const form = document.getElementById("form");
 form.addEventListener("submit", function(event){
     event.preventDefault();
+
+    let clientName = document.getElementById("client_name").value;
+    let selectedSeats = seats.filter(seat => seat.status === "selected");
+
+    if(selectedSeats.length === 0){
+        alert("Wybierz przynajmniej jedno miejsce na sali!");
+        return;
+    }
+
+    selectedSeats.forEach(seat => {
+        seat.status = "reserved";
+        seat.clientName = clientName;
+
+        let seatDiv = document.getElementById("seat_" + seat.id);
+        seatDiv.classList.remove("selected");
+        seatDiv.classList.add("reserved");
+    })
     console.log("Form submitted");
 });
