@@ -82,10 +82,14 @@ console.log("Cinema seats:", seats);
 const form = document.getElementById("form");
 form.addEventListener("submit", function(event){
     event.preventDefault();
-
     let clientName = document.getElementById("client_name").value;
-    let selectedSeats = seats.filter(seat => seat.status === "selected");
+    let isNameTaken = seats.some(seat => seat.clientName === clientName);
 
+    if(isNameTaken){
+        alert ("Istnieje rezerwacja o nazwie: " + clientName);
+        return;
+    }
+    let selectedSeats = seats.filter(seat => seat.status === "selected");
     if(selectedSeats.length === 0){
         alert("Wybierz przynajmniej jedno miejsce na sali!");
         return;
@@ -99,5 +103,9 @@ form.addEventListener("submit", function(event){
         seatDiv.classList.remove("selected");
         seatDiv.classList.add("reserved");
     })
+    alert("Rezerwacja: " + clientName + " przebiegła pomyślnie");
+    form.reset();
+    updateSeats();
+    calculatePrice();
     console.log("Form submitted");
 });
