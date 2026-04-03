@@ -109,3 +109,24 @@ form.addEventListener("submit", function(event){
     calculatePrice();
     console.log("Form submitted");
 });
+const cancellation = document.getElementById("reservation_cancel");
+cancellation.addEventListener("click", function(event){
+    let clientName = document.getElementById("cancel_reservation_id").value;
+    let reservedSeats = seats.filter(seat => seat.status === "reserved" && seat.clientName === clientName);
+
+    if (reservedSeats.length === 0) {
+        alert("Nie znaleziono rezerwacji dla nazwy: " + clientName);
+        return;
+    }
+    reservedSeats.forEach(seat => {
+        seat.status =  "free";
+        delete seat.clientName;
+
+        let seatDiv = document.getElementById("seat_" + seat.id);
+        seatDiv.classList.remove("reserved");
+        seatDiv.classList.add("free");
+    })
+    alert("Anulowano rezerwację dla: " + clientName);
+    document.getElementById("cancel_reservation_id").value = "";
+    updateSeats();
+})
