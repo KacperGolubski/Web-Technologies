@@ -55,6 +55,7 @@ function updateSeats() {
             slotSelect.value = "";
             slotInfo.textContent = "Wybierz miejsce";
         }
+        calculatePrice();
     }
 }
 
