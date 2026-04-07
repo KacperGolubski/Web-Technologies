@@ -28,11 +28,13 @@
 
     <section id="matrix-input">
         <h2>2. Wprowadź wartości macierzy</h2>
-        <input type="number" id="m00" value="1">
-        <input type="number" id="m01" value="2">
-        <br>
-        <input type="number" id="m10" value="3">
-        <input type="number" id="m11" value="4">
+        <div id="matrix_fields">
+            <input type="number" id="m00" value="1">
+            <input type="number" id="m01" value="2">
+            <br>
+            <input type="number" id="m10" value="3">
+            <input type="number" id="m11" value="4">
+        </div>
         <br><br>
         <button type="button" id="calculate">Oblicz</button>
     </section>
@@ -41,8 +43,7 @@
         <h2>3. Rozwiązanie</h2>
         <output id="solution_steps"></output>
     </section>
-
 </main>
-<script src="script.js"></script>
+<script src="index.js"></script>
 </body>
 </html>
