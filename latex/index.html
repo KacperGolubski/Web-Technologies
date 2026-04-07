@@ -1,10 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Macierzowy</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<main>
+    <h1>Kalkulator Macierzowy</h1>
 
+    <section id="operation-selector">
+        <h2>1. Wybierz rodzaj zadania</h2>
+        <label>Operacja:</label>
+        <select id="operation_type">
+            <option value="determinant">Wyznacznik macierzy</option>
+            <option value="inverse">Macierz odwrotna</option>
+        </select>
+        <label>Wybierz rozmiar tablicy</label>
+        <select id="matrix_size">
+            <option value="2">2x2</option>
+            <option value="3">3x3</option>
+        </select>
+    </section>
+
+    <section id="matrix-input">
+        <h2>2. Wprowadź wartości macierzy</h2>
+        <input type="number" id="m00" value="1">
+        <input type="number" id="m01" value="2">
+        <br>
+        <input type="number" id="m10" value="3">
+        <input type="number" id="m11" value="4">
+        <br><br>
+        <button type="button" id="calculate">Oblicz</button>
+    </section>
+
+    <section id="results">
+        <h2>3. Rozwiązanie</h2>
+        <output id="solution_steps"></output>
+    </section>
+
+</main>
+<script src="script.js"></script>
 </body>
 </html>
