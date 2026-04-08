@@ -36,6 +36,10 @@ calculateBtn.addEventListener("click", function() {
         let m01 = parseFloat(document.getElementById("m01").value);
         let m10 = parseFloat(document.getElementById("m10").value);
         let m11 = parseFloat(document.getElementById("m11").value);
+        if(isNaN(m00) || isNaN(m01) || isNaN(m10) || isNaN(m11)) {
+            alert("Uzupełnij wszsytkie pola");
+            return;
+        }
         let result = m00 * m11 - m10 * m01;
         let latexString = `
         Krok 1: Wzór na wyznacznik macierzy 2x2: 
@@ -63,6 +67,10 @@ calculateBtn.addEventListener("click", function() {
         let m20 = parseFloat(document.getElementById("m20").value);
         let m21 = parseFloat(document.getElementById("m21").value);
         let m22 = parseFloat(document.getElementById("m22").value);
+        if(isNaN(m00) || isNaN(m01) || isNaN(m02) || isNaN(m10) || isNaN(m11) || isNaN(m12) || isNaN(m20) || isNaN(m21) || isNaN(m22)) {
+            alert("Uzupełnij wszsytkie pola");
+            return;
+        }
         let result = m00*m11*m22 + m01*m12*m20 + m02*m10*m21 - (m20*m11*m02 + m21*m12*m00 + m22*m10*m01);
         let latexString = `
         Krok 1: Wzór na wyznacznik macierzy 3x3 (Reguła Sarrusa):
