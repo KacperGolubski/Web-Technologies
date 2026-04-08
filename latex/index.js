@@ -31,27 +31,53 @@ matrixSizeSelect.addEventListener("change", function() {
 
 const calculateBtn = document.getElementById("calculate");
 calculateBtn.addEventListener("click", function() {
-    let m00 = parseFloat(document.getElementById("m00").value);
-    let m01 = parseFloat(document.getElementById("m01").value);
-    let m10 = parseFloat(document.getElementById("m10").value);
-    let m11 = parseFloat(document.getElementById("m11").value);
-    let result = m00 * m11 - m10 * m01;
-    let latexString = `
-    Krok 1: Wzór na wyznacznik macierzy 2x2: 
-    $$ \\det \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} = a \\cdot d - b \\cdot c $$
-
-    Krok 2: Podstawiamy Twoje liczby: 
-    $$ \\det \\begin{bmatrix} ${m00} & ${m01} \\\\ ${m10} & ${m11} \\end{bmatrix} = ${m00} \\cdot ${m11} - ${m01} \\cdot ${m10} $$
+    if(matrixSizeSelect.value === "2") {
+        let m00 = parseFloat(document.getElementById("m00").value);
+        let m01 = parseFloat(document.getElementById("m01").value);
+        let m10 = parseFloat(document.getElementById("m10").value);
+        let m11 = parseFloat(document.getElementById("m11").value);
+        let result = m00 * m11 - m10 * m01;
+        let latexString = `
+        Krok 1: Wzór na wyznacznik macierzy 2x2: 
+        $$ \\det \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} = a \\cdot d - b \\cdot c $$
     
-    Krok 3: Wynik końcowy: 
-    $$ Wyznacznik = ${result} $$
-    `;
+        Krok 2: Podstawiamy Twoje liczby: 
+        $$ \\det \\begin{bmatrix} ${m00} & ${m01} \\\\ ${m10} & ${m11} \\end{bmatrix} = ${m00} \\cdot ${m11} - ${m01} \\cdot ${m10} $$
+        
+        Krok 3: Wynik końcowy: 
+        $$ Wyznacznik = ${result} $$
+        `;
 
-    document.getElementById("solution_steps").innerHTML = latexString;
-    if (window.MathJax) {
-        MathJax.typesetPromise();
+        document.getElementById("solution_steps").innerHTML = latexString;
+        if (window.MathJax) {
+            MathJax.typesetPromise();
+        }
     }
-    console.log("Moja macierz 2x2:");
-    console.log(m00, m01);
-    console.log(m10, m11);
+    else if (matrixSizeSelect.value === "3"){
+        let m00 = parseFloat(document.getElementById("m00").value);
+        let m01 = parseFloat(document.getElementById("m01").value);
+        let m02 = parseFloat(document.getElementById("m02").value);
+        let m10 = parseFloat(document.getElementById("m10").value);
+        let m11 = parseFloat(document.getElementById("m11").value);
+        let m12 = parseFloat(document.getElementById("m12").value);
+        let m20 = parseFloat(document.getElementById("m20").value);
+        let m21 = parseFloat(document.getElementById("m21").value);
+        let m22 = parseFloat(document.getElementById("m22").value);
+        let result = m00*m11*m22 + m01*m12*m20 + m02*m10*m21 - (m20*m11*m02 + m21*m12*m00 + m22*m10*m01);
+        let latexString = `
+        Krok 1: Wzór na wyznacznik macierzy 3x3 (Reguła Sarrusa):
+        $$ \\det \\begin{bmatrix} a & b & c \\\\ d & e & f \\\\ g & h & i \\end{bmatrix} = aei + bfg + cdh - (ceg + afh + bdi) $$
+        
+        Krok 2: Podstawiamy Twoje liczby:
+        $$ \\det \\begin{bmatrix} ${m00} & ${m01} & ${m02} \\\\ ${m10} & ${m11} & ${m12} \\\\ ${m20} & ${m21} & ${m22} \\end{bmatrix} = $$
+        $$ (${m00} \\cdot ${m11} \\cdot ${m22}) + (${m01} \\cdot ${m12} \\cdot ${m20}) + (${m02} \\cdot ${m10} \\cdot ${m21}) - ((${m02} \\cdot ${m11} \\cdot ${m20}) + (${m00} \\cdot ${m12} \\cdot ${m21}) + (${m01} \\cdot ${m10} \\cdot ${m22})) $$
+        
+        Krok 3: Wynik końcowy:
+        $$ Wyznacznik = ${result} $$
+        `;
+        document.getElementById("solution_steps").innerHTML = latexString;
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
 });
