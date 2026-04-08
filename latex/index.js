@@ -4,7 +4,7 @@ const matrixOperations = document.getElementById("operation_type");
 
 matrixSizeSelect.addEventListener("change", function() {
     let size = matrixSizeSelect.value;
-
+    document.getElementById("solution_steps").innerHTML = "";
     if (size === "2") {
         matrixFieldsContainer.innerHTML = `
             <input type="number" id="m00" value="1">
@@ -29,6 +29,10 @@ matrixSizeSelect.addEventListener("change", function() {
         `;
     }
 });
+
+matrixOperations.addEventListener("change", function() {
+    document.getElementById("solution_steps").innerHTML = "";
+})
 
 const calculateBtn = document.getElementById("calculate");
 calculateBtn.addEventListener("click", function() {
@@ -83,7 +87,7 @@ calculateBtn.addEventListener("click", function() {
         }
 
     }
-    else if (matrixSizeSelect.value === "3"){
+    else if (matrixSizeSelect.value === "3") {
         let m00 = parseFloat(document.getElementById("m00").value);
         let m01 = parseFloat(document.getElementById("m01").value);
         let m02 = parseFloat(document.getElementById("m02").value);
@@ -93,12 +97,13 @@ calculateBtn.addEventListener("click", function() {
         let m20 = parseFloat(document.getElementById("m20").value);
         let m21 = parseFloat(document.getElementById("m21").value);
         let m22 = parseFloat(document.getElementById("m22").value);
-        if(isNaN(m00) || isNaN(m01) || isNaN(m02) || isNaN(m10) || isNaN(m11) || isNaN(m12) || isNaN(m20) || isNaN(m21) || isNaN(m22)) {
+        if (isNaN(m00) || isNaN(m01) || isNaN(m02) || isNaN(m10) || isNaN(m11) || isNaN(m12) || isNaN(m20) || isNaN(m21) || isNaN(m22)) {
             alert("Uzupełnij wszsytkie pola");
             return;
         }
-        let result = m00*m11*m22 + m01*m12*m20 + m02*m10*m21 - (m20*m11*m02 + m21*m12*m00 + m22*m10*m01);
-        let latexString = `
+        let result = m00 * m11 * m22 + m01 * m12 * m20 + m02 * m10 * m21 - (m20 * m11 * m02 + m21 * m12 * m00 + m22 * m10 * m01);
+        if (matrixOperations.value === "determinant") {
+            let latexString = `
         Krok 1: Wzór na wyznacznik macierzy 3x3 (Reguła Sarrusa):
         $$ \\det \\begin{bmatrix} a & b & c \\\\ d & e & f \\\\ g & h & i \\end{bmatrix} = aei + bfg + cdh - (ceg + afh + bdi) $$
         
@@ -109,9 +114,51 @@ calculateBtn.addEventListener("click", function() {
         Krok 3: Wynik końcowy:
         $$ Wyznacznik = ${result} $$
         `;
-        document.getElementById("solution_steps").innerHTML = latexString;
+            document.getElementById("solution_steps").innerHTML = latexString;
             if (window.MathJax) {
                 MathJax.typesetPromise();
             }
+        } else if (matrixOperations.value === "inverse") {
+            if (result === 0) {
+                alert("Wyznacznik macierzy jest równy 0. Macierz nie ma macierzy odwrotnej");
+                return;
+            }
+            let adj00 = m11 * m22 - m12 * m21;
+            let adj01 = -(m01 * m22 - m02 * m21);
+            let adj02 = m01 * m12 - m02 * m11;
+            let adj10 = -(m10 * m22 - m12 * m20);
+            let adj11 = m00 * m22 - m02 * m20;
+            let adj12 = -(m00 * m12 - m02 * m10);
+            let adj20 = m10 * m21 - m11 * m20;
+            let adj21 = -(m00 * m21 - m01 * m20);
+            let adj22 = m00 * m11 - m01 * m10;
+            let inv00 = adj00 / result;
+            let inv01 = adj01 / result;
+            let inv02 = adj02 / result;
+            let inv10 = adj10 / result;
+            let inv11 = adj11 / result;
+            let inv12 = adj12 / result;
+            let inv20 = adj20 / result;
+            let inv21 = adj21 / result;
+            let inv22 = adj22 / result;
+
+            // 3. Wyświetlamy wynik
+            let latexString = `
+            Krok 1: Wzór na macierz odwrotną:
+            $$ A^{-1} = \\frac{1}{\\det A} \\cdot A^{D} $$
+            
+            Krok 2: Macierz dołączona podzielona przez Twój wyznacznik (${result}):
+            $$ A^{-1} = \\frac{1}{${result}} \\begin{bmatrix} ${adj00} & ${adj01} & ${adj02} \\\\ ${adj10} & ${adj11} & ${adj12} \\\\ ${adj20} & ${adj21} & ${adj22} \\end{bmatrix} $$
+            
+            Krok 3: Wynik końcowy:
+            $$ A^{-1} = \\begin{bmatrix} ${inv00} & ${inv01} & ${inv02} \\\\ ${inv10} & ${inv11} & ${inv12} \\\\ ${inv20} & ${inv21} & ${inv22} \\end{bmatrix} $$
+            `;
+
+            document.getElementById("solution_steps").innerHTML = latexString;
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+
         }
+    }
 });
