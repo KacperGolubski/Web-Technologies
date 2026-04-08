@@ -30,12 +30,19 @@ matrixSizeSelect.addEventListener("change", function() {
     }
 });
 
+matrixFieldsContainer.addEventListener("input", calculateAll);
+
 matrixOperations.addEventListener("change", function() {
     document.getElementById("solution_steps").innerHTML = "";
 })
 
 const calculateBtn = document.getElementById("calculate");
 calculateBtn.addEventListener("click", function() {
+    calculateAll();
+});
+
+
+function calculateAll(){
     if(matrixSizeSelect.value === "2") {
         let m00 = parseFloat(document.getElementById("m00").value);
         let m01 = parseFloat(document.getElementById("m01").value);
@@ -142,7 +149,6 @@ calculateBtn.addEventListener("click", function() {
             let inv21 = adj21 / result;
             let inv22 = adj22 / result;
 
-            // 3. Wyświetlamy wynik
             let latexString = `
             Krok 1: Wzór na macierz odwrotną:
             $$ A^{-1} = \\frac{1}{\\det A} \\cdot A^{D} $$
@@ -161,4 +167,4 @@ calculateBtn.addEventListener("click", function() {
 
         }
     }
-});
+}
