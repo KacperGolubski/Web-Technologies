@@ -1,5 +1,6 @@
 const matrixSizeSelect = document.getElementById("matrix_size");
 const matrixFieldsContainer = document.getElementById("matrix_fields");
+const matrixOperations = document.getElementById("operation_type");
 
 matrixSizeSelect.addEventListener("change", function() {
     let size = matrixSizeSelect.value;
@@ -41,7 +42,8 @@ calculateBtn.addEventListener("click", function() {
             return;
         }
         let result = m00 * m11 - m10 * m01;
-        let latexString = `
+        if(matrixOperations.value === "determinant"){
+            let latexString = `
         Krok 1: Wzór na wyznacznik macierzy 2x2: 
         $$ \\det \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} = a \\cdot d - b \\cdot c $$
     
@@ -52,10 +54,34 @@ calculateBtn.addEventListener("click", function() {
         $$ Wyznacznik = ${result} $$
         `;
 
-        document.getElementById("solution_steps").innerHTML = latexString;
-        if (window.MathJax) {
-            MathJax.typesetPromise();
+            document.getElementById("solution_steps").innerHTML = latexString;
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        } else if (matrixOperations.value === "inverse") {
+            if (result === 0){
+                alert("Wyznacznik macierzy jest równy 0. Macierz nie ma macierzy odwrotnej");
+                return;
+            }
+            let inv00 = m11/result;
+            let inv01 = -m01/result;
+            let inv10 = -m10/result;
+            let inv11 = m00/result;
+            let latexString = `
+            Krok 1: Wzór na macierz odwrotną 2x2:
+            $$ A^{-1} = \\frac{1}{\\det A} \\begin{bmatrix} d & -b \\\\ -c & a \\end{bmatrix} $$
+            
+            Krok 2: Podstawiamy Twoje liczby:
+            $$ A^{-1} = \\frac{1}{${result}} \\begin{bmatrix} ${m11} & ${-m01} \\\\ ${-m10} & ${m00} \\end{bmatrix} $$
+            
+            Krok 3: Wynik końcowy:
+            $$ A^{-1} = \\begin{bmatrix} ${inv00} & ${inv01} \\\\ ${inv10} & ${inv11} \\end{bmatrix} $$
+            `;
+
+            document.getElementById("solution_steps").innerHTML = latexString;
+            if (window.MathJax) { MathJax.typesetPromise(); }
         }
+
     }
     else if (matrixSizeSelect.value === "3"){
         let m00 = parseFloat(document.getElementById("m00").value);
