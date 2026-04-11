@@ -1,0 +1,89 @@
+body {
+    font-family: sans-serif;
+    background-color: #eee;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    background: white;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+h1, h2 {
+    color: #000;
+}
+
+h1 {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.1rem;
+    border-bottom: 1px solid #000;
+    padding-bottom: 5px;
+}
+
+select, button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+button {
+    background: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+button:active {
+    background: #444;
+}
+
+#matrix_fields {
+    text-align: center;
+    padding: 10px 0;
+}
+
+#matrix_fields input {
+    width: 50px;
+    height: 40px;
+    margin: 2px;
+    text-align: center;
+    border: 1px solid #999;
+    font-size: 1rem;
+}
+
+
+#results {
+    margin-top: 20px;
+    padding: 10px;
+    background: #fdfdfd;
+    border: 1px dashed #999;
+    overflow-x: auto;
+}
+
+mjx-container[display="true"] {
+    margin: 60px 0 !important;
+}
+
+@media (max-width: 400px) {
+    #matrix_fields input {
+        width: 45px;
+        margin: 1px;
+    }
+    h1 {
+        font-size: 1.2rem;
+    }
+}
